@@ -6,10 +6,13 @@ namespace Survivor.Models
     {
         public int SeasonId { get; set; }
         public string SeasonName { get; set; }
-        public ICollection<SeasonPlayer> Players {get; set;}
+        public string Location { get; set; }
+        public int ReleaseYear { get; set; }
+        
+        public ICollection<Appearance> PlayersInSeason {get; set;}
         public Season()
         {
-            this.Players = new HashSet<SeasonPlayer>();
+            this.PlayersInSeason = new HashSet<Appearance>();
         }
     }
 }

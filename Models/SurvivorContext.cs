@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System;
+
 namespace Survivor.Models
+
 {
     public class SurvivorContext : DbContext
     {
@@ -10,33 +13,90 @@ namespace Survivor.Models
 
         public DbSet<Player> Players {get; set;}
         public DbSet<Season> Seasons {get; set;}
-        public DbSet<SeasonPlayer> SeasonPlayers {get; set;}
+        public DbSet<Appearance> Appearances {get; set;}
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            DateTime thisYear = DateTime.Now;
+            
             builder.Entity<Player>().HasData(
                 new Player {
                     PlayerId = 1, 
                     PlayerName = "Boston Rob", 
-                    PlayerDays = 117, 
+                    TotalDays = 117,
+                    Gender = "Male",
+                    CurrentAge = thisYear.Year - 1975,
+                    GameAge = 2002 - 1975
+                    },
+                    new Player {
+                    PlayerId = 2, 
+                    PlayerName = "Peter Harkey", 
+                    TotalDays = 0,
+                    Gender = "Male",
+                    CurrentAge = thisYear.Year - 1956,
+                    GameAge = 2002 - 1956
+                   
+                    },
+                    new Player {
+                    PlayerId = 3, 
+                    PlayerName = "Patricia Jackson", 
+                    TotalDays = 0,
+                    Gender = "Female",
+                    CurrentAge = thisYear.Year - 1952,
+                    GameAge = 2002 - 1952
+                   
+                    },
+                    new Player {
+                    PlayerId = 4, 
+                    PlayerName = "Hunter Ellis", 
+                    TotalDays = 0,
+                    Gender = "Male",
+                    CurrentAge = thisYear.Year - 1968,
+                    GameAge = 2002 - 1968
+                   
+                    },
+                    new Player {
+                    PlayerId = 5, 
+                    PlayerName = "Sarah Jones", 
+                    TotalDays = 0,
+                    Gender = "Female",
+                    CurrentAge = thisYear.Year - 1977,
+                    GameAge = 2002 - 1977 
+                   
+                    },
+                    new Player {
+                    PlayerId = 6, 
+                    PlayerName = "Gabriel Cade", 
+                    TotalDays = 0,
+                    Gender = "Male",
+                    CurrentAge = thisYear.Year - 1978,
+                    GameAge = 2002 - 1978
+                   
+                    },
+                    new Player {
+                    PlayerId = 7, 
+                    PlayerName = "Vecepia Towery", 
+                    TotalDays = 0,
+                    Gender = "Female",
+                    CurrentAge = thisYear.Year - 1965,
+                    GameAge = 2002 - 1965,
+                    Winner = true
                    
                     }
             );
 
-
             builder.Entity<Season>().HasData(
                 new Season {
-                    SeasonId = 1, 
-                    SeasonName = "Marquesas", 
+                    SeasonId = 4, 
+                    SeasonName = "Marquesas" 
                     
                     }
             );
-            builder.Entity<SeasonPlayer>().HasData(
-                new SeasonPlayer {
-                    SeasonId = 1, 
+            builder.Entity<Appearance>().HasData(
+                new Appearance {
+                    SeasonId = 4, 
                     PlayerId = 1,
-                    SeasonPlayerId = 1 
-                    
+                    AppearanceId = 1 
                     }
             );
         }

@@ -2,11 +2,13 @@ using System.Collections.Generic;
 
 namespace Survivor.Models
 {
-    public class SeasonPlayer
+    public class Appearance
     {
-       public int SeasonPlayerId {get;set;}
+       public int AppearanceId {get;set;}
        public int PlayerId {get;set;}
        public int SeasonId {get;set;}
+
+       public int DaysPerSeason { get; set;}
 
        public Player Player {get; set;}
        public Season Season {get;set;}
