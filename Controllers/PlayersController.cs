@@ -34,6 +34,8 @@ namespace Survivor.Controllers
         }
 
 
+
+
         // Post api/players
         [HttpPost]
         public void Post([FromBody] Player player)

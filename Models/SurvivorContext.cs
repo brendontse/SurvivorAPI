@@ -17,7 +17,6 @@ namespace Survivor.Models
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            DateTime thisYear = DateTime.Now;
             
             builder.Entity<Player>().HasData(
                 new Player {
@@ -25,16 +24,14 @@ namespace Survivor.Models
                     PlayerName = "Boston Rob", 
                     TotalDays = 117,
                     Gender = "Male",
-                    CurrentAge = thisYear.Year - 1975,
-                    GameAge = 2002 - 1975
+                    BirthYear =  1975,
                     },
                     new Player {
                     PlayerId = 2, 
                     PlayerName = "Peter Harkey", 
                     TotalDays = 0,
                     Gender = "Male",
-                    CurrentAge = thisYear.Year - 1956,
-                    GameAge = 2002 - 1956
+                    BirthYear =  1956,
                    
                     },
                     new Player {
@@ -42,8 +39,7 @@ namespace Survivor.Models
                     PlayerName = "Patricia Jackson", 
                     TotalDays = 0,
                     Gender = "Female",
-                    CurrentAge = thisYear.Year - 1952,
-                    GameAge = 2002 - 1952
+                    BirthYear =  1952,
                    
                     },
                     new Player {
@@ -51,8 +47,7 @@ namespace Survivor.Models
                     PlayerName = "Hunter Ellis", 
                     TotalDays = 0,
                     Gender = "Male",
-                    CurrentAge = thisYear.Year - 1968,
-                    GameAge = 2002 - 1968
+                    BirthYear =  1968,
                    
                     },
                     new Player {
@@ -60,8 +55,7 @@ namespace Survivor.Models
                     PlayerName = "Sarah Jones", 
                     TotalDays = 0,
                     Gender = "Female",
-                    CurrentAge = thisYear.Year - 1977,
-                    GameAge = 2002 - 1977 
+                    BirthYear =  1977,
                    
                     },
                     new Player {
@@ -69,8 +63,7 @@ namespace Survivor.Models
                     PlayerName = "Gabriel Cade", 
                     TotalDays = 0,
                     Gender = "Male",
-                    CurrentAge = thisYear.Year - 1978,
-                    GameAge = 2002 - 1978
+                    BirthYear =  1978,
                    
                     },
                     new Player {
@@ -78,8 +71,7 @@ namespace Survivor.Models
                     PlayerName = "Vecepia Towery", 
                     TotalDays = 0,
                     Gender = "Female",
-                    CurrentAge = thisYear.Year - 1965,
-                    GameAge = 2002 - 1965,
+                    BirthYear = 1965,
                     Winner = true
                    
                     }
@@ -96,7 +88,9 @@ namespace Survivor.Models
                 new Appearance {
                     SeasonId = 4, 
                     PlayerId = 1,
-                    AppearanceId = 1 
+                    AppearanceId = 1,
+                    DaysPerSeason = 11,
+                    GameAge = 25
                     }
             );
         }
